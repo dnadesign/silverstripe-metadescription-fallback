@@ -93,7 +93,7 @@ class MetaDescriptionFallbackSiteTreeExtension extends DataExtension
             }
         }
 
-        return $metaDescription;
+        return strip_tags($metaDescription);
     }
 
 
