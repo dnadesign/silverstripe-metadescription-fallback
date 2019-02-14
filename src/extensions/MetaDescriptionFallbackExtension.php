@@ -2,13 +2,13 @@
 
 namespace Chrometoaster\SEO\DataExtensions;
 
-use Config;
-use Controller;
-use DataExtension;
-use DataObject;
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Control\Controller;
+use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\DataExtension;
 
 /**
- * Class MetaDescriptionFallbackSiteTreeExtension
+ * Class MetaDescriptionFallbackExtension
  *
  * Provide a mechanism to define fallback fields to get relevant content
  * for meta description header.
@@ -27,7 +27,7 @@ use DataObject;
  *
  * @package Chrometoaster\SEO\DataExtensions
  */
-class MetaDescriptionFallbackSiteTreeExtension extends DataExtension
+class MetaDescriptionFallbackExtension extends DataExtension
 {
     /**
      * Fallback fields for meta description header
