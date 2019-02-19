@@ -7,6 +7,10 @@
     "homepage": "http://github.com/chrometoasters/silverstripe-metadescription-fallback",
     "authors": [
         {
+            "name": "Doug McKechie",
+            "email": "doug.mckechie@chrometoaster.com"
+        },
+        {
             "name": "Michal Kleiner",
             "email": "michal.kleiner@chrometoaster.com"
         }
@@ -15,7 +19,6 @@
         "issues": "http://github.com/chrometoasters/silverstripe-metadescription-fallback/issues"
     },
     "require": {
-        "php": ">= 5.6, <7.2",
         "silverstripe/cms": "^4.0"
     }
 }
