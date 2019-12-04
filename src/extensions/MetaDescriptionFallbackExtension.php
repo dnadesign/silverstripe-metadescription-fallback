@@ -111,7 +111,7 @@ class MetaDescriptionFallbackExtension extends DataExtension
 
         if (!empty($metaDescription)) {
             $tag = sprintf('<meta name="description" content="%s" />', $metaDescription);
-            $replacePattern = '/<meta.*?name="description".*?\/>/';
+            $replacePattern = '/<meta.*?name="description".*?\/>/sU';
 
             // replace if present, append otherwise
             if (preg_match($replacePattern, $tags)) {
