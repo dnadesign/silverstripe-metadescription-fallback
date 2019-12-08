@@ -6,6 +6,7 @@ use SilverStripe\Core\Config\Config;
 use SilverStripe\Control\Controller;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\ORM\DataExtension;
+use SilverStripe\ORM\FieldType\DBText;
 
 /**
  * Class MetaDescriptionFallbackExtension
@@ -96,7 +97,8 @@ class MetaDescriptionFallbackExtension extends DataExtension
         // add a space to closing </p> to prevent bunching, strip all tags and replace multiple spaces with a single one
         $metaDescription = preg_replace('/\s+/', ' ', strip_tags(trim(str_replace('</p>', '</p> ', $metaDescription))));
 
-        return $metaDescription;
+        // call ATT() on an instance of DBText
+        return DBText::create()->setValue($metaDescription)->ATT();
     }
 
 
@@ -111,7 +113,7 @@ class MetaDescriptionFallbackExtension extends DataExtension
 
         if (!empty($metaDescription)) {
             $tag = sprintf('<meta name="description" content="%s" />', $metaDescription);
-            $replacePattern = '/<meta.*?name="description".*?\/>/';
+            $replacePattern = '/<meta.*?name="description".*?\/>/sU';
 
             // replace if present, append otherwise
             if (preg_match($replacePattern, $tags)) {
