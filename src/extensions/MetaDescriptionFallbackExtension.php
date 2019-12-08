@@ -97,12 +97,8 @@ class MetaDescriptionFallbackExtension extends DataExtension
         // add a space to closing </p> to prevent bunching, strip all tags and replace multiple spaces with a single one
         $metaDescription = preg_replace('/\s+/', ' ', strip_tags(trim(str_replace('</p>', '</p> ', $metaDescription))));
 
-        // call ATT() on an instance of DBText's family, preferablly the DBMarkdownText DB fieldtype which is known
-        // to address Markdown format by Chrometoaster
-        $className = class_exists('Chrometoaster\MarkdownEnabledText\FieldTypes\DBMarkdownText') ?
-            \Chrometoaster\MarkdownEnabledText\FieldTypes\DBMarkdownText::class : DBText::class;
-
-        return singleton($className)->setValue($metaDescription)->ATT();
+        // call ATT() on an instance of DBText
+        return DBText::create()->setValue($metaDescription)->ATT();
     }
 
 
