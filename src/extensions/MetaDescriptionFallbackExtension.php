@@ -112,7 +112,7 @@ class MetaDescriptionFallbackExtension extends DataExtension
         $metaDescription = $this->getGeneralMetaDescription();
 
         if (!empty($metaDescription)) {
-            $tag = sprintf('<meta name="description" content="%s" />', $metaDescription);
+            $tag = sprintf('<meta name="description" content="%s" />', preg_replace('/\$/', '\\\$', $metaDescription));
             $replacePattern = '/<meta.*?name="description".*?\/>/sU';
 
             // replace if present, append otherwise
