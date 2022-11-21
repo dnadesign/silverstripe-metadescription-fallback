@@ -95,7 +95,7 @@ class MetaDescriptionFallbackExtension extends DataExtension
         }
 
         // add a space to closing </p> to prevent bunching, strip all tags and replace multiple spaces with a single one
-        $metaDescription = preg_replace('/\s+/', ' ', strip_tags(trim(str_replace('</p>', '</p> ', $metaDescription))));
+        $metaDescription = preg_replace('/\s+/', ' ', strip_tags(trim(str_replace('</p>', '</p> ', (string) $metaDescription))));
 
         // call ATT() on an instance of DBText
         return DBText::create()->setValue($metaDescription)->ATT();
